@@ -32,6 +32,9 @@ class lugaresVC: UIViewController, UITableViewDataSource, UITableViewDelegate,CL
     var palabra = ""
     var locationManager:CLLocationManager = CLLocationManager()
     
+    //detectar si hay internet
+     var reachability:Reachability!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tablaLugares.dataSource = self
@@ -40,8 +43,33 @@ class lugaresVC: UIViewController, UITableViewDataSource, UITableViewDelegate,CL
         
         refrescar()
         activarIndicador()
+        //internet
+        self.reachability = Reachability.init()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(conexion), name: Notification.Name.reachabilityChanged, object: reachability)
+        do {
+            try reachability.startNotifier()
+        } catch  {
+            print("error en la notificacion")
+        }
     }
+    @objc func conexion(nota:Notification){
+        let reach = nota.object as! Reachability
+        switch reach.connection {
+        case .wifi:
+            break
+          //  self.indicadorLbl.text = "Hay conexion wifi"
+        case .cellular:
+            break
+          //  self.indicadorLbl.text = "Hay conexion movil"
+        case .none:
+            showAlert()
+            break
+          //  self.indicadorLbl.text = "no hay conexion"
+        }
+    }
+    
+    
     func refrescar()
     {
         tablaLugares.layer.cornerRadius = 5.0
@@ -56,6 +84,9 @@ class lugaresVC: UIViewController, UITableViewDataSource, UITableViewDelegate,CL
         productos = DataService.ejemplo.obtenerProducto(paraTituloCategoria: titulo)
         tablaLugares.reloadData()
         refreshControl.endRefreshing()
+        if reachability.connection == .none {
+            showAlert()
+        }
     }
     
     func cargarlogo()
@@ -291,5 +322,13 @@ class lugaresVC: UIViewController, UITableViewDataSource, UITableViewDelegate,CL
         homework.resume()
     }
         
+}
+extension lugaresVC: UIAlertViewDelegate{
+    func showAlert(){
+        UIAlertView(title: "Ups",
+                    message: "Consigue internet para una mejor experiencia",
+            delegate: self,
+            cancelButtonTitle: "Ok").show()
+    }
 }
 
