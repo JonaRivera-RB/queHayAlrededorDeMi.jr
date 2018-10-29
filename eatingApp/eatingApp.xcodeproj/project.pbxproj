@@ -22,6 +22,8 @@
 		1329DB301FF35C1F00913C36 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1329DB2F1FF35C1F00913C36 /* DataService.swift */; };
 		134E57581FFABA9A007EBBA1 /* lugaresVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134E57571FFABA9A007EBBA1 /* lugaresVC.swift */; };
 		1357B2DA2186A65B00E4AFB4 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357B2D92186A65B00E4AFB4 /* Reachability.swift */; };
+		1357B2DC2186ADF000E4AFB4 /* viewLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357B2DB2186ADEF00E4AFB4 /* viewLabels.swift */; };
+		1357B2DE2186AF9300E4AFB4 /* viewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357B2DD2186AF9300E4AFB4 /* viewButton.swift */; };
 		13604C8B1FF7F5AD00E05528 /* fondoDelBoton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13604C8A1FF7F5AD00E05528 /* fondoDelBoton.swift */; };
 		13604C8D1FF7F74200E05528 /* fondotxt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13604C8C1FF7F74200E05528 /* fondotxt.swift */; };
 		13604C8F1FF81A4800E05528 /* fondoImagen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13604C8E1FF81A4800E05528 /* fondoImagen.swift */; };
@@ -63,6 +65,8 @@
 		1329DB2F1FF35C1F00913C36 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		134E57571FFABA9A007EBBA1 /* lugaresVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lugaresVC.swift; sourceTree = "<group>"; };
 		1357B2D92186A65B00E4AFB4 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		1357B2DB2186ADEF00E4AFB4 /* viewLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewLabels.swift; sourceTree = "<group>"; };
+		1357B2DD2186AF9300E4AFB4 /* viewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewButton.swift; sourceTree = "<group>"; };
 		13604C8A1FF7F5AD00E05528 /* fondoDelBoton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fondoDelBoton.swift; sourceTree = "<group>"; };
 		13604C8C1FF7F74200E05528 /* fondotxt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fondotxt.swift; sourceTree = "<group>"; };
 		13604C8E1FF81A4800E05528 /* fondoImagen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fondoImagen.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 				13604C8C1FF7F74200E05528 /* fondotxt.swift */,
 				13604C8E1FF81A4800E05528 /* fondoImagen.swift */,
 				13D8EBD82011140100248EF9 /* vistafondo.swift */,
+				1357B2DB2186ADEF00E4AFB4 /* viewLabels.swift */,
+				1357B2DD2186AF9300E4AFB4 /* viewButton.swift */,
 			);
 			path = vistas;
 			sourceTree = "<group>";
@@ -348,8 +354,10 @@
 				1329DB161FF3507800913C36 /* AppDelegate.swift in Sources */,
 				131E9A9D20095FD500FA5BA5 /* reviews.swift in Sources */,
 				136B7BB12006723A00A4A1B7 /* detalleVC.swift in Sources */,
+				1357B2DE2186AF9300E4AFB4 /* viewButton.swift in Sources */,
 				1357B2DA2186A65B00E4AFB4 /* Reachability.swift in Sources */,
 				13D8EBD92011140100248EF9 /* vistafondo.swift in Sources */,
+				1357B2DC2186ADF000E4AFB4 /* viewLabels.swift in Sources */,
 				1329DB301FF35C1F00913C36 /* DataService.swift in Sources */,
 				1306E82620105A8A00F155BB /* estrellasobtener.swift in Sources */,
 			);

@@ -20,6 +20,9 @@ class mapKitVc: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
     @IBOutlet weak var lblminutos: UILabel!
     @IBOutlet weak var lblkilometors: UILabel!
     let locationmanager = CLLocationManager()
+    
+    var destCoordinates:CLLocationCoordinate2D?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,10 +44,10 @@ class mapKitVc: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
         }
         
         let sourceCoordinates = locationmanager.location?.coordinate
-        let destCoordinates = CLLocationCoordinate2DMake(latitud, longitud)
+         destCoordinates = CLLocationCoordinate2DMake(latitud, longitud)
         
         let sourcePlacemark = MKPlacemark(coordinate: sourceCoordinates!)
-        let destPlacemark = MKPlacemark(coordinate: destCoordinates)
+        let destPlacemark = MKPlacemark(coordinate: destCoordinates!)
         
         let sourceItem = MKMapItem(placemark: sourcePlacemark)
         let destItem = MKMapItem(placemark: destPlacemark)
@@ -68,7 +71,9 @@ class mapKitVc: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
             let route = response.routes[0]
             self.mapkitView.addOverlay(route.polyline, level: .aboveRoads)
             self.lblminutos.text = String("\(Int(route.expectedTravelTime/60.0)) min")
-            self.lblkilometors.text = String("\(Double(route.distance/1000)) Km")
+            let kilometros = route.distance/1000
+           // String(format: "%.2f", currentRatio)
+            self.lblkilometors.text = String(format: "%.1f", kilometros) + " Km"
             print("distancia en metros>\(String(describing: self.lblkilometors))")
             let rekt = route.polyline.boundingMapRect
             self.mapkitView.setRegion(MKCoordinateRegion.init(rekt), animated: true)
@@ -94,5 +99,19 @@ class mapKitVc: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
     }
+    
+    //open the map
+    @IBAction func showMap(_ sender: Any) {
+        let regionDistance:CLLocationDistance = 1000;
+        let regionSpan = MKCoordinateRegion(center: destCoordinates!,latitudinalMeters: regionDistance,longitudinalMeters: regionDistance)
+        
+        let options = [MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)]
+        
+        let placeMark = MKPlacemark(coordinate: destCoordinates!)
+        let mapItem = MKMapItem(placemark: placeMark)
+        mapItem.name = "Mi destino"
+        mapItem.openInMaps(launchOptions: options)
+    }
+    
     
 }
