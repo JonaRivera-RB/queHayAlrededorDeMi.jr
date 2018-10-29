@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+target 'eatingApp' do
+project '/Users/misael/Desktop/programacion/appsListasPortafolio/eatingApp/eatingApp.xcodeproj'
+pod 'GoogleMaps'
+pod 'GooglePlaces'
+pod 'Kingfisher', '~> 4.0'
+pod 'Alamofire'
+end
+
